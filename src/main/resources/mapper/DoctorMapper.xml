@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zitengfang.ythy.dao.DoctorDao">
+
+    <resultMap id="BaseResultMap" type="com.zsyl.ythy.domain.Doctor">
+        <result column="DoctorId" property="id" />
+        <result column="UserName" property="userName" />
+        <result column="NickName" property="nickName" />
+        <result column="DepartmentId" property="departmentId" />
+        <result column="ProfessionTitle" property="professionTitle" />
+    </resultMap>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT DoctorId, UserName, NickName, DepartmentId, ProfessionTitle
+        FROM doctor d
+        WHERE d.DoctorId = #{id}
+    </select>
+
+</mapper>
